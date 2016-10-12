@@ -18,6 +18,7 @@ using std::vector;
 		int _radius;
 	public:
 		Wheel(int radius) { _radius = radius; }
+		int getRadius() { return _radius; };
 	};
 
 	// STEP 1: Complete the implementation of the Vehicle base class 
@@ -54,8 +55,18 @@ using std::vector;
 		void Description()
 		{
 			_topspeed = 250;
-			Wheel(305); // wheel radius
-			cout << "I am a " << this->_color << " race car that can race up to " << _topspeed << "mph. Vroom!" << endl;
+
+			Wheel *wheel_1 = new Wheel(305);
+			for (int i = 0; i <4; i ++) // wheels of Racecar
+			{
+				
+				wheels.push_back(*wheel_1);
+				
+			}
+			
+			
+			cout << "I am a " << this->_color << " race car that has " << wheels.capacity() << " wheels that are " << this->wheels[0].getRadius() << "mm wide." << endl;
+			cout << "I am able to race up to " << _topspeed << "mph. Kachow!" << endl << endl;
 		}
 
 
@@ -70,11 +81,19 @@ using std::vector;
 			_color = color;
 		}
 
+
 		void Description()
 		{
 			_topspeed = 95;
-			Wheel(381);
-			cout << "I am a " << this->_color << " sedan that can carry 5 people at " << _topspeed << "mph. Yea!" << endl;
+			Wheel *wheel_2 = new Wheel(381);
+			for (int i = 0; i <4; i++) // wheels of Racecar
+			{
+
+				wheels.push_back(*wheel_2);
+
+			}
+			cout << "I am a " << this->_color << " sedan with " << wheels.capacity() << " wheels that are " << this->wheels[0].getRadius() << "mm wide." << endl;
+			cout << "I am able to carry 5 people comfortably at " << _topspeed << "mph. Yea!" << endl << endl;
 		}
 
 
@@ -93,8 +112,15 @@ using std::vector;
 		void Description()
 		{
 			_topspeed = 85;
-			Wheel(432);
-			cout << "I am a " << this->_color << " pickup that can haul 600 sq. feet at " << _topspeed << " mph." << endl;
+			Wheel *wheel_3 = new Wheel(432);
+			for (int i = 0; i <4; i++) // wheels of Racecar
+			{
+
+				wheels.push_back(*wheel_3);
+			
+			}
+			cout << "I am a " << this->_color << " pickup that has " << wheels.capacity() << " wheels" << endl;
+			cout << "that are " << this->wheels[0].getRadius() << "mm wide. I can haul 600 sq. feet at " << _topspeed << " mph." << endl << endl;
 		}
 	};
 
@@ -122,7 +148,9 @@ using std::vector;
 			// The method Description() should display an output like 
 			// "I am a red sedan (or racecar/pickup) and I can go 95 (or 250 or 85) mph"
 			Garage[i]->Description();
+			
 		}
+		cout << "Take that Pete ;)" << endl << endl;
 		return 0;
 	}
 
